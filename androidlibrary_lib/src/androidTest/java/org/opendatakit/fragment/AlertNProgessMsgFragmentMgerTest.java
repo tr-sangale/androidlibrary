@@ -111,7 +111,7 @@ public class AlertNProgessMsgFragmentMgerTest {
         scenario.onActivity(new ActivityScenario.ActivityAction<TestActivity>() {
             @Override
             public void perform(TestActivity activity) {
-                int fragmentId = new Random().nextInt();
+                int fragmentId = new Random().nextInt(          //bug testing
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
 
                 systemUnderTest.createAlertDialog(ALERT_DIALOG_TITLE, ALERT_DIALOG_MESSAGE, fragmentManager, fragmentId);
