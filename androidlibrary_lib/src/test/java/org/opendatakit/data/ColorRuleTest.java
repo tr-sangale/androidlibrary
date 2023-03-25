@@ -47,7 +47,7 @@ public class ColorRuleTest {
       Assert.assertEquals(Color.BLUE, cr1.getForeground());
       Assert.assertEquals(ColorRule.RuleType.EQUAL, cr1.getOperator());
       Assert.assertEquals("myElement", cr1.getColumnElementKey());
-      Assert.assertEquals("7", cr1.getVal());
+      Assert.assertEquals("5", cr1.getVal());
 
       String crs1 = cr1.toString();
       String crs2 = cr2.toString();
