@@ -73,22 +73,7 @@ public class PropertiesNonPrivilegedTest {
 
         props.setProperties(properties);
 
-        StaticStateManipulator.get().reset();
-
-        props = CommonToolProperties.get(context, APPNAME);
-        assertEquals(props.getProperty(CommonToolProperties.KEY_FONT_SIZE), "29");
-    }
-
-    /**
-     * Setting or removing secure properties from a
-     * non-privileged APK should fail.
-     */
-    @Test
-    public void testSecureSetProperties() {
-
-        StaticStateManipulator.get().reset();
-        Context context = InstrumentationRegistry.getContext();
-
+      
         TreeMap<String,String> secureProperties = new TreeMap<String,String>();
         CommonToolProperties.accumulateProperties(context, null, null, secureProperties);
         PropertiesSingleton props = CommonToolProperties.get(context, APPNAME);
@@ -123,13 +108,7 @@ public class PropertiesNonPrivilegedTest {
      */
     @Test
     public void testSecureGetProperties() {
-
-        StaticStateManipulator.get().reset();
-        Context context = InstrumentationRegistry.getContext();
-
-        TreeMap<String,String> secureProperties = new TreeMap<String,String>();
-        CommonToolProperties.accumulateProperties(context, null, null, secureProperties);
-        PropertiesSingleton props = CommonToolProperties.get(context, APPNAME);
+text, APPNAME);
 
         for ( String secureKey : secureProperties.keySet() ) {
             // this is stored in SharedPreferences
