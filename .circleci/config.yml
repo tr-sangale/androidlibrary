@@ -47,15 +47,15 @@ jobs:
           command: ./gradlew clean assemble
 
       # run tests!
-      # - run: 
-      #     name: gradle androidTest
-      #     command: ./gradlew connectedAndroidTest
+      - run: 
+          name: gradle unit tests
+          command: ./gradlew test
  
   android-test:
     executor:
       name: android/android-machine
       tag: "202102-01"
-      resource-class: xlarge
+      resource-class: large
 
     steps:
       - checkout
@@ -83,7 +83,7 @@ jobs:
       #  - android/run-ui-tests:
           # system-image: system-images;android-28;default;x86
       - run:
-          name: install emulator
+          name: installing emulator and Running Instrumentation tests
           command:  |
             sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator"
             sdkmanager "system-images;android-29;google_apis;x86"
@@ -95,9 +95,10 @@ jobs:
             adb shell settings put global window_animation_scale 0
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
-      - run:
-          name: android testing
-          command: ./gradlew connectedAndroidTest
+            ./gradlew connectedAndroidTest
+      # - run:
+      #     name: android testing
+      #     command: ./gradlew connectedAndroidTest
 
 # --exclude-task connectedDemoUitestDebugAndroidTest --exclude-task connectedMasterBasicDebugAndroidTest
 
