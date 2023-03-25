@@ -8,7 +8,7 @@ jobs:
 
     docker:
       # specify the version you desire here
-      - image: cimg/android:2023.02
+      - image: circleci/android:api-28
 
 
     working_directory: ~/repo
@@ -49,10 +49,6 @@ jobs:
           name: gradle test
           command: ./gradlew lint test
           
-      # - run:
-      #     name: Build and deploy package
-      #     command: |
-      #       mvn clean deploy -Dmaven.repo.url=https://maven.pkg.github.com/tr-sangale/androidlibrary -Dmaven.deploy.skip=true -Dmaven.artifact.threads=5
 
 
   deploy:
@@ -74,17 +70,4 @@ workflows:
       - deploy:
           requires:
             - build
-# workflows:
-#   version: 2
-#   build-and-deploy:
-#     jobs:
-#       - build:
-#           filters:
-#             branches:
-#               only: master
-#       - deploy:
-#           requires:
-#             - build
-#           filters:
-#             branches:
-#               only: master
+
