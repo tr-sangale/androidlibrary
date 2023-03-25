@@ -57,7 +57,7 @@ public class ColorRuleTest {
       Assert.assertNotEquals(cr1, cr2);
 
       cr2.setVal("6");
-      Assert.assertFalse(cr1.equalsWithoutId(cr2));
+      Assert.assertFalse(cr1.equalsWithoutId(cr2)
       Assert.assertEquals("6", cr2.getVal());
       cr1.setVal("6");
 
