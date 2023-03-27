@@ -49,7 +49,7 @@ jobs:
       # run tests!
       - run: 
           name: gradle unit tests
-          command: ./gradlew test
+          command: ./gradlew lint test
  
   android-test:
     executor:
